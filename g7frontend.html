@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>G7Frontend</title>
+  <style>
+    body{
+      background: #ED213A;  /* fallback for old browsers */
+      background: linear-gradient(45deg, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      min-height:100vh;
+      color:white;
+      font-family:'Open Sans',sans-serif;
+      overflow:hidden;
+    }
+    .menu{
+      background:Transparent;
+      border:none;
+      color:white;
+      border-radius:4px;
+    }
+    .menu-large{
+      font-size:40px;
+      text-shadow: 2px 2px rgb(0,0,0);
+    }
+    .menu-nofirst{
+      margin-right:40px;
+    }
+    .menuselected{
+      text-decoration:underline;
+    }
+</style>
+</head>
+<body>
+    <div style='text-align:center;'>
+  <button id='HOME' type='button' class='menu menuselected menu-large menu-nofirst material-icons'>home</button>
+  <button id='GAMES' type='button' class='menu menu-large menu-nofirst material-icons'>sports_esports</button>
+  <button id='TV' type='button' class='menu menu-large menu-nofirst material-icons'>tv</button>
+  <button id='APPS' type='button' class='menu menu-large menu-nofirst material-icons'>apps</button>
+  <button id='SETTINGS' type='button' class='menu menu-large menu-nofirst material-icons'>settings</button>
+  <button id='HELP' type='button' class='menu menu-large menu-nofirst material-icons'>help</button>
+    </div>
+  <!-- Time for all of these dumb div classes for content! -->
+  <div id='_HOME' style='display:block;'><h2>Welcome to G7OS!</h2><p>This is a holder page for the real home. I am just glad that page() works.</p></div>
+  <div id='_GAMES' style='display:none;'>Test2</div>
+  <div id='_TV' style='display:none;'></div>
+  <div id='_SETTINGS' style='display:none;'></div>
+  <div id='_HELP' style='display:none;'></div>
+</body>
+  <script>
+    // Yes! Content Pages!
+    var _currentpage='HOME'; //Remove the need for the hidden Attribute so we can have more than two pages
+     function page(shown) {
+       const d=document.getElementById(shown); // Save some DOM Calls Here
+       let cd=document.getElementById(_currentpage);
+      cd.classList.remove('menuselected');
+      d.classList.add('menuselected'); 
+      document.getElementById('_'+shown).style.display='block';
+      document.getElementById('_'+_currentpage).style.display='none';
+      _currentpage=shown;
+      return false;
+    } 
+    // Some Cool looking scripts for XBox
+  const rAF = window.mozRequestAnimationFrame || window.requestAnimationFrame;
+let current = 0;
+let focusable = document.querySelectorAll('button:not(.menu-large), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
+window.addEventListener('gamepadconnected', function (e) {
+    updateLoop();
+});
+
+function nextItem(index) {
+    index++;
+    current = index % focusable.length;
+    focusable[current].focus();
+}
+
+function prevItem(index) {
+    index--;
+    current = index % focusable.length;
+    focusable[current].focus();
+}
+
+function clickItem(index) {
+    if (focusable[index]) {
+        focusable[index].click();
+    }
+}
+
+function updateLoop() {
+    let gp = navigator.getGamepads()[0];
+    //console.log(gp); < This one should only be used for debug because it is console spam
+    //console.log(current); < This javaScript causes little console spam
+
+    switch (true) {
+        case gp.buttons[0].pressed:
+            clickItem(current);
+            break;
+        case gp.buttons[4].pressed:
+            prevItem(current);
+            break;
+        case gp.buttons[5].pressed:
+            nextItem(current);
+            break;
+        default:
+            break;
+    }
+
+    setTimeout(function () {
+        rAF(updateLoop);
+    }, 150);
+}
+  </script>
+</html>
