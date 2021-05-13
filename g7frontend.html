@@ -29,6 +29,13 @@
       width:60px;
       font-size:30px;
     }
+    .menu-app-lg{
+      border:none;
+      color:white;
+      height:80px;
+      width:80px;
+      font-size:40px;
+    }
     .menu-large{
       font-size:40px;
       text-shadow: 2px 2px rgb(0,0,0);
@@ -46,7 +53,7 @@
       background:gray;
       color:white;
     }
-    #_HOME{
+    #_HOME,#_GAMES,#_APPS{
       text-align:center;
     }
 </style>
@@ -67,18 +74,29 @@
     <button class='tile-normal' type='button' id='favgame2'></button>
     <button class='tile-normal' type='button' id='favgame3'></button>
     <br>
+    <br>
     <!--Quick launch apps (Web Browser, Discord, Album, App Store) -->
     <button class='menu-app material-icons' type='button' style='background:#006CFF;' id='web'>explore</button>
     <button class='menu-app material-icons' type='button' style='background:#7289da;' id='discord'>chat</button>
     <button class='menu-app material-icons' type='button' style='background:rgb(80,80,80);' id='photos'>photo_library</button>
-    <button class='menu-app material-icons' type='button' style='background:rgb(255,120,0);' id='shop'>shopping_bag</button>
-    
-    
+    <button class='menu-app material-icons' type='button' style='background:rgb(255,120,0);' id='shop'>shopping_bag</button>  
   </div>
-  <div id='_GAMES' style='display:none;'>Test2</div>
+  <div id='_GAMES' style='display:none;'>
+    <h2>Games</h2>
+  </div>
   <div id='_TV' style='display:none;'></div>
+  <div id='_APPS' style='display:none;'>
+    <h2>Apps</h2>
+  </div>
   <div id='_SETTINGS' style='display:none;'></div>
-  <div id='_HELP' style='display:none;'></div>
+  <div id='_HELP' style='display:none;'>
+    <div style='text-align:center;'><h2>Help</h2></div>
+    <h3 id='kernelversion'>Kernel:</h3>
+    <h3 id='osversion'>G7OS Version:</h3>
+    <h3 id='frontendversion'>G7Frontend Version:</h3>
+    <h3 id='cpumodel'>CPU:</h3>
+    <h3 id='gpumodel'>GPU:</h3>
+  </div>
 </body>
   <script>
     // Yes! Content Pages!
