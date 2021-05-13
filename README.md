@@ -8,5 +8,7 @@ This was done to ensure a custom look for G7OS and all HTPCs that use it. Not al
 - NodeJS for providing an amazing backend
 
 (C) Google 2021, Licensed under the Apache 2.0 License
+
 (C) Various Authors, Licensed under many licenses
+
 (C) Node 2021, Licensed under the MIT License
