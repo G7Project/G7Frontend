@@ -32,19 +32,34 @@
     .menuselected{
       text-decoration:underline;
     }
+    .tile-normal{
+      border:none;
+      width:322px;
+      height:150.5px;
+      background:gray;
+      color:white;
+    }
+    #_HOME{
+      text-align:center;
+    }
 </style>
 </head>
 <body>
-    <div style='text-align:center;'>
+    <div>
   <button id='HOME' type='button' class='menu menuselected menu-large menu-nofirst material-icons'>home</button>
   <button id='GAMES' type='button' class='menu menu-large menu-nofirst material-icons'>sports_esports</button>
   <button id='TV' type='button' class='menu menu-large menu-nofirst material-icons'>tv</button>
   <button id='APPS' type='button' class='menu menu-large menu-nofirst material-icons'>apps</button>
   <button id='SETTINGS' type='button' class='menu menu-large menu-nofirst material-icons'>settings</button>
   <button id='HELP' type='button' class='menu menu-large menu-nofirst material-icons'>help</button>
-    </div>
+  </div>
   <!-- Time for all of these dumb div classes for content! -->
-  <div id='_HOME' style='display:block;'><h2>Welcome to G7OS!</h2><p>This is a holder page for the real home. I am just glad that page() works.</p></div>
+  <div id='_HOME' style='display:block;'>
+    <h2>Favorite Games</h2>
+    <button class='tile-normal' type='button' id='favgame1'></button>
+    <button class='tile-normal' type='button' id='favgame2'></button>
+    <button class='tile-normal' type='button' id='favgame3'></button>
+  </div>
   <div id='_GAMES' style='display:none;'>Test2</div>
   <div id='_TV' style='display:none;'></div>
   <div id='_SETTINGS' style='display:none;'></div>
