@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  <title>G7 App Store</title>
+  <style>
+    body{
+      font-family:'Open Sans',sans-serif;
+      overflow:hidden;
+      display:flex;
+      margin:0;
+      padding:0;
+      background:rgb(235,235,235);
+    }
+    #side{
+      background:orange;
+      color:white;
+      width:300px;
+      height:100vh;
+    }
+    .pad{
+      margin:5px;
+    }
+    .sidebutton{
+      width:300px;
+      height:30px;
+      border-radius:0px;
+      color:white;
+      background:darkorange;
+      border-color:darkorange;
+      text-align:left;
+    }
+  </style>
+</head>
+<body>
+  <div id='side'>
+    <button type='button' class='sidebutton' id='home'>Home</button>
+    <button type='button' class='sidebutton' id='home'>Apps</button>
+    <button type='button' class='sidebutton' id='home'>Games</button>
+    <button type='button' class='sidebutton' id='home'>Emulators</button>
+    <button type='button' class='sidebutton' id='home'>Multimedia</button>
+    <button type='button' class='sidebutton' id='home'>Development Tools</button>
+    <button type='button' class='sidebutton' id='home'>Other</button>
+  </div>
+  <div class='pad'>
+    
+  </div>
+</body>
+  <script>
+  // Yes! Content Pages! (This was taken from the G7Frontend with good reason)
+    var _currentpage='HOME'; //Remove the need for the hidden Attribute so we can have more than two pages
+     function page(shown) {
+       const d=document.getElementById(shown); // Save some DOM Calls Here
+       let cd=document.getElementById(_currentpage);
+      cd.classList.remove('menuselected');
+      d.classList.add('menuselected'); 
+      document.getElementById('_'+shown).style.display='block';
+      document.getElementById('_'+_currentpage).style.display='none';
+      _currentpage=shown;
+      return false;
+    } 
+  </script>
+</html>
