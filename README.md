@@ -5,9 +5,12 @@ This was done to ensure a custom look for G7OS and all HTPCs that use it. Not al
 
 ## Cool App Bro. How do I install it?
 Just clone the repo, cd into it, and run the following:
+
 ```chmod +x ./install.sh```
 ```./install.sh```
+
 That's it. Nothing much to it. To launch it, just type the following:
+
 ```g7frontend```
 ## Credits
 - Google for the Material Icons, Roboto, and Open Sans (fonts.google.com)
