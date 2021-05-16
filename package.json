@@ -1,0 +1,10 @@
+{
+    "name": "G7Frontend",
+    "version": "1.0",
+    "author": "Microlemur",
+    "description": "A NodeJS/Electron Gaming Frontend",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    }
+}
