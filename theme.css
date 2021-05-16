@@ -1,0 +1,49 @@
+/* This is just the theme G7OS wants to load. Edit to your will. */
+ body{
+      background: #ED213A;  /* fallback for old browsers */
+      background: linear-gradient(45deg, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      min-height:100vh;
+      color:white;
+      font-family:'Open Sans',sans-serif;
+      overflow:hidden;
+    }
+    .menu{
+      background:Transparent;
+      border:none;
+      color:white;
+      border-radius:4px;
+    }
+    .menu-app{
+      border:none;
+      color:white;
+      height:60px;
+      width:60px;
+      font-size:30px;
+    }
+    .menu-app-lg{
+      border:none;
+      color:white;
+      height:80px;
+      width:80px;
+      font-size:40px;
+    }
+    .menu-large{
+      font-size:40px;
+      text-shadow: 2px 2px rgb(0,0,0);
+    }
+    .menu-nofirst{
+      margin-right:40px;
+    }
+    .menuselected{
+      text-decoration:underline;
+    }
+    .tile-normal{
+      border:none;
+      width:322px;
+      height:150.5px;
+      background:gray;
+      color:white;
+    }
+    #_HOME,#_GAMES,#_APPS{
+      text-align:center;
+    }
