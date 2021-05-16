@@ -30,8 +30,18 @@ function fromDir(startPath,filter){
 }; // Adopted from here (https://stackoverflow.com/questions/25460574/find-files-by-extension-html-under-a-folder-in-nodejs)
 function genConfig(){
 let i001 = commands.indexOf("dolphin-emu"); // Dolphin Emulator!
+let i002 = commands.indexOf("multimc5"); // MultiMC5!
+let i003 = commands.indexOf("retroarch"); // RetroArch!
   if(i001!=-1){
   installed[installed_length]='dolphin-emu';
+  installed_length+=1;
+  }
+    if(i002!=-1){
+  installed[installed_length]='multimc5';
+  installed_length+=1;
+  }
+    if(i003!=-1){
+  installed[installed_length]='retroarch';
   installed_length+=1;
   }
 }
