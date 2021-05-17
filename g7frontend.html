@@ -43,6 +43,9 @@
     .menu-nofirst{
       margin-right:40px;
     }
+    .logo{
+      margin-right:20px;
+    }
     .settingsbar{
       background:darkred;
       border-color:darkred;
@@ -63,6 +66,20 @@
       background:gray;
       color:white;
     }
+    .disable{
+       background:rgb(100,100,100);
+       border-color:rgb(100,100,100);
+    }
+    .enable{
+      background:green;
+      border-color:green;
+    }
+    .disable,.enable{
+      color:white;
+      width:500px;
+      text-align:left;
+      height:30px;
+    }
     #_HOME,#_GAMES,#_APPS{
       text-align:center;
     }
@@ -70,6 +87,7 @@
 </head>
 <body>
     <div>
+      <input src='https://github.com/G7-Project/G7Frontend/blob/main/shared/logo.png?raw=true' class='logo' title='Profile' type='image' height='40px'>
   <button id='HOME' title='Home' type='button' class='menu menuselected menu-large menu-nofirst material-icons'>home</button>
   <button id='GAMES' title='Games'type='button' class='menu menu-large menu-nofirst material-icons'>sports_esports</button>
   <button id='TV' title='TV' type='button' class='menu menu-large menu-nofirst material-icons'>tv</button>
@@ -78,7 +96,7 @@
   <button id='HELP' title='Help' type='button' class='menu menu-large menu-nofirst material-icons'>help</button>
   </div>
   <!-- Time for all of these dumb div classes for content! -->
-  <div id='_HOME' style='display:block;'>
+  <div id='_HOME' style='display:none;'>
     <h2>Favorite Games</h2>
     <button class='tile-normal' type='button' id='favgame1'></button>
     <button class='tile-normal' type='button' id='favgame2'></button>
@@ -100,15 +118,15 @@
   </div>
   <div id='_SETTINGS' style='display:none;'>
     <h2 style='text-align:center;'>Settings</h2>
-    <button type='button' class='settingsbar' id='linuxsettings'>Linux Settings</button>
+    <button type='button' class='settingsbar' id='linuxsettings' onclick='menupage("LINUXSETTINGS")'>Linux Settings</button>
     <br>
-    <button type='button' class='settingsbar' id='frontendsettings'>Frontend Settings</button>
+    <button type='button' class='settingsbar' id='frontendsettings' onclick='page("FRONTENDSETTINGS")'>Frontend Settings</button>
     <br>
-    <button type='button' class='settingsbar' id='inputsettings'>Input Settings</button>
+    <button type='button' class='settingsbar' id='inputsettings' onclick="page('INPUTSETTINGS')">Input Settings</button>
     <br>
-    <button type='button' class='settingsbar' id='gamesettings'>Game Settings</button>
+    <button type='button' class='settingsbar' id='videosettings' onclick='page("VIDEOSETTINGS")'>Video Settings</button>
     <br>
-    <button type='button' class='settingsbar' id='videosettings'>Video Settings</button>
+    <button type='button' class='settingsbar' id='gamesettings' onclick="page('GAMESETTINGS')">Game Settings</button>
   </div>
   <div id='_HELP' style='display:none;'>
     <div style='text-align:center;'><h2>Help</h2></div>
@@ -116,13 +134,33 @@
     <h3 id='osversion'>G7OS Version: </h3>
     <h3 id='frontendversion'>G7Frontend Version: </h3>
     <h3 id='cpumodel'>CPU: </h3>
+    <h4 style='text-align:center;'>(C) 2021 Microlemur, Licensed under the MIT License</h4>
   </div>
-</body>
+  <!--Settings Pages defined for the settings options! (Ugh)-->
+  <div id='_LINUXSETTINGS' style='display:none;'>
+    <h2 style='text-align:center;'>Settings > Linux</h2>
+    <button type='button' class='settingsbar'>Update Packages</button>
+    <br>
+    <button type='button' class='disable'>Enable Desktop/HTPC Hybrid</button>
+    <br>
+    <button type='button' class='disable'>Enable VM Support</button>
+  </div>
+  <div id='_FRONTENDSETTINGS' style='display:none;'>
+    <h2 style='text-align:center;'>Settings > Frontend</h2>
+    <button type='button' class='settingsbar'>Security</button>
+    <br>
+    <button type='button' class='settingsbar'>Themes</button>
+    <br>
+    <button type='button' class='settingsbar'>Flags (Dangerous!)</button>
+  <div id='_INPUTSETTINGS' style='display:none;'></div>
+  <div id='_VIDEOSETTINGS' style='display:none;'></div>
+  <div id='_GAMESETTINGS' style='display:none;'></div> 
+  </body>
   <script>
     // Yes! Content Pages!
     var _currentpage='HOME'; //Remove the need for the hidden Attribute so we can have more than two pages
-     function page(shown) {
-       const d=document.getElementById(shown); // Save some DOM Calls Here
+     function page(shown) { 
+       let d=document.getElementById(shown); // Save some DOM Calls Here
        let cd=document.getElementById(_currentpage);
       cd.classList.remove('menuselected');
       d.classList.add('menuselected'); 
@@ -130,56 +168,16 @@
       document.getElementById('_'+_currentpage).style.display='none';
       _currentpage=shown;
       return false;
-    } 
-    // Some Cool looking scripts for XBox
-  const rAF = window.mozRequestAnimationFrame || window.requestAnimationFrame;
-let current = 0;
-let focusable = document.querySelectorAll('button:not(.menu-large), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-
-window.addEventListener('gamepadconnected', function (e) {
-    updateLoop();
-});
-
-function nextItem(index) {
-    index++;
-    current = index % focusable.length;
-    focusable[current].focus();
-}
-
-function prevItem(index) {
-    index--;
-    current = index % focusable.length;
-    focusable[current].focus();
-}
-
-function clickItem(index) {
-    if (focusable[index]) {
-        focusable[index].click();
-    }
-}
-
-function updateLoop() {
-    let gp = navigator.getGamepads()[0];
-    //console.log(gp); < This one should only be used for debug because it is console spam
-    //console.log(current); < This javaScript causes little console spam
-
-    switch (true) {
-        case gp.buttons[0].pressed:
-            clickItem(current);
-            break;
-        case gp.buttons[4].pressed:
-            prevItem(current);
-            break;
-        case gp.buttons[5].pressed:
-            nextItem(current);
-            break;
-        default:
-            break;
-    }
-
-    setTimeout(function () {
-        rAF(updateLoop);
-    }, 150);
-}
+    } //Top Bar page()
+    function menupage(shown){
+        let d=document.getElementById(shown); // Save some DOM Calls Here
+       let cd=document.getElementById(_currentpage);
+// Never had menuselected!
+      document.getElementById('_'+shown).style.display='block';
+      document.getElementById('_'+_currentpage).style.display='none';
+      _currentpage=shown;
+      return false;
+    } //This is for subpages. I can't underline these buttons! (P.S. it works!)
+// XBox Script now lives within the shared/gamepad folder.
   </script>
 </html>
