@@ -9,6 +9,6 @@
     },
     "license": "MIT",
     "dependencies": {
-    "electron":"^9.0"
+    "castlabs-electron":"^9.0"
   }
 }
