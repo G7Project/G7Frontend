@@ -43,6 +43,16 @@
     .menu-nofirst{
       margin-right:40px;
     }
+    .settingsbar{
+      background:darkred;
+      border-color:darkred;
+      color:white;
+      width:500px;
+      height:40px;
+      font-size:18px;
+      font-family:'Roboto','Open Sans',sans-serif;
+      text-align:left;
+    }
     .menuselected{
       text-decoration:underline;
     }
@@ -60,12 +70,12 @@
 </head>
 <body>
     <div>
-  <button id='HOME' type='button' class='menu menuselected menu-large menu-nofirst material-icons'>home</button>
-  <button id='GAMES' type='button' class='menu menu-large menu-nofirst material-icons'>sports_esports</button>
-  <button id='TV' type='button' class='menu menu-large menu-nofirst material-icons'>tv</button>
-  <button id='APPS' type='button' class='menu menu-large menu-nofirst material-icons'>apps</button>
-  <button id='SETTINGS' type='button' class='menu menu-large menu-nofirst material-icons'>settings</button>
-  <button id='HELP' type='button' class='menu menu-large menu-nofirst material-icons'>help</button>
+  <button id='HOME' title='Home' type='button' class='menu menuselected menu-large menu-nofirst material-icons'>home</button>
+  <button id='GAMES' title='Games'type='button' class='menu menu-large menu-nofirst material-icons'>sports_esports</button>
+  <button id='TV' title='TV' type='button' class='menu menu-large menu-nofirst material-icons'>tv</button>
+  <button id='APPS' title='Apps' type='button' class='menu menu-large menu-nofirst material-icons'>apps</button>
+  <button id='SETTINGS' title='Settings' type='button' class='menu menu-large menu-nofirst material-icons'>settings</button>
+  <button id='HELP' title='Help' type='button' class='menu menu-large menu-nofirst material-icons'>help</button>
   </div>
   <!-- Time for all of these dumb div classes for content! -->
   <div id='_HOME' style='display:block;'>
@@ -76,10 +86,10 @@
     <br>
     <br>
     <!--Quick launch apps (Web Browser, Discord, Album, App Store) -->
-    <button class='menu-app material-icons' type='button' style='background:#006CFF;' id='web'>explore</button>
-    <button class='menu-app material-icons' type='button' style='background:#7289da;' id='discord'>chat</button>
-    <button class='menu-app material-icons' type='button' style='background:rgb(80,80,80);' id='photos'>photo_library</button>
-    <button class='menu-app material-icons' type='button' style='background:rgb(255,120,0);' id='shop'>shopping_bag</button>  
+    <button title='Web Browser' class='menu-app material-icons' type='button' style='background:#006CFF;' id='web'>explore</button>
+    <button title='Discord 'class='menu-app material-icons' type='button' style='background:#7289da;' id='discord'>chat</button>
+    <button title='Photos' class='menu-app material-icons' type='button' style='background:rgb(80,80,80);' id='photos'>photo_library</button>
+    <button title='Shop' class='menu-app material-icons' type='button' style='background:rgb(255,120,0);' id='shop'>shopping_bag</button>  
   </div>
   <div id='_GAMES' style='display:none;'>
     <h2>Games</h2>
@@ -88,7 +98,18 @@
   <div id='_APPS' style='display:none;'>
     <h2>Apps</h2>
   </div>
-  <div id='_SETTINGS' style='display:none;'></div>
+  <div id='_SETTINGS' style='display:none;'>
+    <h2 style='text-align:center;'>Settings</h2>
+    <button type='button' class='settingsbar' id='linuxsettings'>Linux Settings</button>
+    <br>
+    <button type='button' class='settingsbar' id='frontendsettings'>Frontend Settings</button>
+    <br>
+    <button type='button' class='settingsbar' id='inputsettings'>Input Settings</button>
+    <br>
+    <button type='button' class='settingsbar' id='gamesettings'>Game Settings</button>
+    <br>
+    <button type='button' class='settingsbar' id='videosettings'>Video Settings</button>
+  </div>
   <div id='_HELP' style='display:none;'>
     <div style='text-align:center;'><h2>Help</h2></div>
     <h3 id='kernelversion'>Kernel: </h3>
