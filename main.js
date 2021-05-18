@@ -21,6 +21,7 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
+       BrowserWindow.setFullScreen(true); // Full-screen, not kiosk so we can see the apps being launched.
     }
   })
 })
