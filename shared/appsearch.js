@@ -57,3 +57,4 @@ let i005 = commands.indexOf("steam"); // Steam (Debian Version!)
 }
 fromDir('/usr/bin/',''); // List all files (This takes a bit)
 // Time for the main event! The config generator! (Generates a list of all apps/emulators that integrate with g7os!) (This list is found in /g7/apps.cfg)
+module.exports = { genConfig , fromDir }; 
