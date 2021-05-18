@@ -32,6 +32,8 @@ function genConfig(){
 let i001 = commands.indexOf("dolphin-emu"); // Dolphin Emulator!
 let i002 = commands.indexOf("multimc5"); // MultiMC5!
 let i003 = commands.indexOf("retroarch"); // RetroArch!
+let i004 = commands.indexOf("steam-native"); // Steam (Arch Version!)
+let i005 = commands.indexOf("steam"); // Steam (Debian Version!)
   if(i001!=-1){
   installed[installed_length]='dolphin-emu';
   installed_length+=1;
@@ -42,6 +44,14 @@ let i003 = commands.indexOf("retroarch"); // RetroArch!
   }
     if(i003!=-1){
   installed[installed_length]='retroarch';
+  installed_length+=1;
+  }
+     if(i004!=-1){
+  installed[installed_length]='steam-native';
+  installed_length+=1;
+  }
+     if(i005!=-1){
+  installed[installed_length]='steam';
   installed_length+=1;
   }
 }
